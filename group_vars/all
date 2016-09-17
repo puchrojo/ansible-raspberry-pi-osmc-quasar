@@ -1,0 +1,17 @@
+# Variables
+
+# SDD on Linux Server
+# Please check with "df -h" two times, you could here owerride the whole partition if not
+# https://www.raspberrypi.org/documentation/installation/installing-images/linux.md
+DEV_SDD: /dev/sdd
+# TODO: Auf github sould this variable empty or comment
+
+
+# OSMC Version
+# Search for the las one here: https://osmc.tv/download/ and change all variables here
+OSMC_VERSION: 2016.08-1
+OSMC_URL: http://download.osmc.tv/installers/diskimages/OSMC_TGT_rbp2_20160910.img.gz
+OSMC_GZFILE:                                            OSMC_TGT_rbp2_20160910.img.gz
+OSMC_FILE:                                              OSMC_TGT_rbp2_20160910.img
+OSMC_MD5: 73a160ba830370e09d921c83992882ec
+

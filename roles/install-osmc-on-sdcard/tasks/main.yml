@@ -1,0 +1,9 @@
+---
+
+- name: Install OSMC Image on your SDD-Memory-Card {{DEV_SDD}}
+  # http://docs.ansible.com/ansible/become.html
+  # https://www.raspberrypi.org/documentation/installation/installing-images/linux.md
+  shell: dd bs=4M if=Downloads/{{OSMC_FILE}} of={{DEV_SDD}}
+  become: true
+  become_user: root
+  

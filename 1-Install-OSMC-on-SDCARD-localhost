@@ -1,0 +1,15 @@
+---
+
+- name: Dowload osmc on Admin Computer
+  hosts: 127.0.0.1
+  connection: local
+  roles: 
+    - download-osmc
+
+
+- name: Copy osmc to SDCARD on Admin Computer
+  hosts: 127.0.0.1
+  connection: local
+  become: true
+  roles: 
+    - install-osmc-on-sdcard

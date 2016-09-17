@@ -1,0 +1,5 @@
+# default
+# localhost ansible_connection=local
+
+[raspberrypi]
+192.168.3.72      ansible_ssh_user="root" hostname="praspi3"

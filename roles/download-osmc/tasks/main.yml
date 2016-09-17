@@ -1,0 +1,27 @@
+---
+
+- name: create locale Download Directory on playbook
+  file: path=Downloads state=directory
+
+- name: Show OSMC {{OSMC_VERSION}}
+  debug: msg="this File will be downloaded {{OSMC_URL}}"
+
+- name: Download OSMC {{OSMC_VERSION}}
+  # http://docs.ansible.com/ansible/get_url_module.html
+  get_url: 
+    url: "{{OSMC_URL}}"
+    checksum: md5:{{OSMC_MD5}}
+    dest: Downloads/{{OSMC_GZFILE}}
+    mode: 0440
+
+- name: Check if {{OSMC_FILE}} allready exist 
+  stat: path=Downloads/{{OSMC_FILE}}
+  register: file_allready_unpack
+    
+- name: unpack OSMC.gz
+  # http://docs.ansible.com/ansible/unarchive_module.html
+  #unarchive: src=Downloads/{{OSMC_GZFILE}} dest=Downloads/ # Errors,
+  shell: gunzip --keep Downloads/{{OSMC_GZFILE}}
+  when: file_allready_unpack.stat.exists == False
+
+  
